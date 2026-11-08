@@ -1,3 +1,43 @@
+import CategoryCard from "@/components/CategoryCard";
+
+const categories = [
+  {
+    name: "Engine Parts",
+    description: "Filters, pistons and belts",
+    href: "#engine",
+  },
+  {
+    name: "Lighting",
+    description: "Headlights and tail lights",
+    href: "#lighting",
+  },
+  {
+    name: "Brakes",
+    description: "Brake pads and discs",
+    href: "#brakes",
+  },
+  {
+    name: "Body Parts",
+    description: "Bumpers, doors and mirrors",
+    href: "#body",
+  },
+  {
+    name: "Electrical",
+    description: "Batteries, sensors and wiring",
+    href: "#electrical",
+  },
+  {
+    name: "Interior",
+    description: "Seats, mats and dashboards",
+    href: "#interior",
+  },
+  {
+    name: "Accessories",
+    description: "Covers, chargers and more",
+    href: "#accessories",
+  },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900">
@@ -53,29 +93,26 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-3xl font-bold">Browse Categories</h2>
 
-        <p className="mt-2 text-gray-600">
-          Find parts for your vehicle quickly.
+      <section
+        id="categories"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
+        <h2 className="mb-3 text-3xl font-bold">Shop by Category</h2>
+
+        <p className="mb-8 text-slate-600">
+          Find quality car parts for your vehicle.
         </p>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div className="rounded-xl bg-white p-6 shadow-sm">
-            <h3 className="font-semibold">Bumpers</h3>
-          </div>
-
-          <div className="rounded-xl bg-white p-6 shadow-sm">
-            <h3 className="font-semibold">Headlights</h3>
-          </div>
-
-          <div className="rounded-xl bg-white p-6 shadow-sm">
-            <h3 className="font-semibold">Mirrors</h3>
-          </div>
-
-          <div className="rounded-xl bg-white p-6 shadow-sm">
-            <h3 className="font-semibold">Brakes</h3>
-          </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {categories.map((category) => (
+            <CategoryCard
+              key={category.name}
+              name={category.name}
+              description={category.description}
+              href={category.href}
+            />
+          ))}
         </div>
       </section>
 
